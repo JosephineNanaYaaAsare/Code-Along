@@ -1,8 +1,8 @@
 
 
-function NavItem({ menu }) {
-    return <li>{menu}</li>;
-}
+// function NavItem({ menu }) {
+//     return <li>{menu}</li>;
+// }
 
 
-export default NavItem
+// export default NavItem
