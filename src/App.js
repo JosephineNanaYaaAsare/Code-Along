@@ -1,28 +1,22 @@
-//import Header from "./components/Header";
-//import Button from "./components/Button";
-//import {Image} from "./components/Image";
-//import Navbar from "./components/Navbar";
-//import Practice from"./components/Practice";
-//import TaskManager from "./components/TaskManager";
-//import Form from "./components/Form";
-import ProductList from "./components/ProductList"
-
-
+import TaskManager from "./components/TaskManager";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import Home from "./Pages/Home";
+import ProductList from "./components/ProductList";
+import Navbar from "./components/Navbar"
 function App() {
    return ( 
-    <div>
-      {/*<Navbar />
-      <Header />
-      <Button label="Add to Cart"/>
-      <Button label="Read more... "/>
-      <Button label="Register"/>
-      <Button label="Login"/>
-   <Image />*/}
-      {/*<Practice />*/}
-      {/*<TaskManager />*/}
-      {/*<Form />*/}
-      <ProductList/>
-    </div>
+     <BrowserRouter>
+       <Navbar />
+       <Routes>
+         <Route path="/" element={<Home />} />
+         <Route path="/product" element={<ProductList />} />
+         <Route path="/task-manager" element={<TaskManager />} />
+         <Route path="/about" element={<About />} />
+         <Route path="/contact" element={<Contact />} />
+       </Routes>
+     </BrowserRouter>
     ) ;
 }
 
