@@ -1,23 +1,23 @@
 import React, {useEffect, useState} from "react";
 import TaskItem from "../components/TaskItem";
 import {v4 as uuid} from "uuid"
+import { useTaskContext } from "../Context/tasksContext";
 
 
-    const getTasksFromLocalStorage = () => {
-        // get tasks from local storage
-     const tasks = localStorage.getItem("tasks")
-     if (!tasks) return []
-     return JSON.parse(tasks)
-    }
+    // const getTasksFromLocalStorage = () => {
+    //     // get tasks from local storage
+    //  const tasks = localStorage.getItem("tasks")
+    //  if (!tasks) return []
+    //  return JSON.parse(tasks)
+    // }
 
-    function TaskManager(){
-        const [tasks, setTasks] = useState(getTasksFromLocalStorage);
+    function TaskManager() {
+        const {tasks, setValue} = useTaskContext();
         const [input, setInput] = useState("");
     
 
      const handleSubmit = (e) => {
         e.preventDefault();
-        console.log("Form Submitted")
         if (input === "") return;
 
         const newTask ={
@@ -26,13 +26,13 @@ import {v4 as uuid} from "uuid"
             completed: false,
         };
 
-        setTasks([newTask, ...tasks]);
+        setValue([newTask, ...tasks]);
         setInput("")
     }
 
         const handleDelete = (id) => {
           const newTasks = tasks.filter((task) => task.id !== id)
-          setTasks(newTasks);
+          setValue(newTasks);
         }
     
         useEffect(() => {
