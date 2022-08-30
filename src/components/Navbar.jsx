@@ -1,5 +1,6 @@
 
- import NavItem from"./NavItem"
+ import { NavLink } from "react-router-dom"
+import NavItem from"./NavItem"
 
 const links= [
    { 
@@ -25,7 +26,6 @@ const links= [
 
 ]
 
-
   function Navbar(){
     return (
         <nav className="flex justify-between py-3 px-20 shadow-md">
@@ -40,4 +40,5 @@ const links= [
      )
  }
 
+ 
    export default Navbar
